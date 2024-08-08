@@ -17,6 +17,7 @@ Create an environment file:
 Create a file named .env in the root of the frontend directory and add the following:
 
 REACT_APP_PAYSTACK_PUBLIC_KEY=pk_test_your_public_key
+<br/>
 REACT_APP_BACKEND_URL=http://localhost:9090/api/v1
 Run the application:
 
