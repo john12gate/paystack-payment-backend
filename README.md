@@ -8,7 +8,6 @@ This project integrates Paystack payment gateway using Spring Boot for the backe
 ## Table of Contents
 
 - [Backend Setup](#backend-setup)
-- [Frontend Setup](#frontend-setup)
 - [Running the Application](#running-the-application)
 
 ## Backend Setup
