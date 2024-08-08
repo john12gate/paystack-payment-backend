@@ -1,53 +1,69 @@
-# Frontend Setup
-## Prerequisites
-Node.js
-npm or yarn
-Vercel account (for deployment)
-Setup Instructions
-Navigate to the frontend directory:
+README.md
+markdown
+Copy code
+# Paystack Payment Integration
 
-cd paystack-payment/frontend
-Install dependencies:
+This project integrates Paystack payment gateway using Spring Boot for the backend and React for the frontend.
 
-npm install
-or
-yarn install
-Create an environment file:
+## Table of Contents
 
-Create a file named .env in the root of the frontend directory and add the following:
+- [Backend Setup](#backend-setup)
+- [Frontend Setup](#frontend-setup)
+- [Running the Application](#running-the-application)
 
-REACT_APP_PAYSTACK_PUBLIC_KEY=pk_test_your_public_key
-<br/>
-REACT_APP_BACKEND_URL=http://localhost:9090/api/v1
-Run the application:
+## Backend Setup
 
+### Prerequisites
 
-npm start
-or
+- Java 21 or higher
+- Maven
+- MySQL
+- Paystack account
 
-yarn start
-Running Tests
+### Setup Instructions
+
+1. **Clone the repository:**
+
+    ```sh
+    git clone https://github.com/yourusername/paystack-payment.git
+    cd paystack-payment/backend
+    ```
+
+2. **Configure the Database:**
+
+   Update the `src/main/resources/application.properties` file with your MySQL configuration:
+
+    ```properties
+    spring.datasource.url=jdbc:mysql://localhost:3306/paystack_db
+    spring.datasource.username=root
+    spring.datasource.password=yourpassword
+    spring.jpa.hibernate.ddl-auto=update
+    ```
+
+3. **Add Paystack API Keys:**
+
+   Create a file named `application.properties` in the `src/main/resources/` directory and add your Paystack API keys:
+
+    ```properties
+    paystack.secret.key=sk_test_your_secret_key
+    paystack.public.key=pk_test_your_public_key
+    ```
+
+4. **Build the project:**
+
+    ```sh
+    mvn clean install
+    ```
+
+5. **Run the application:**
+
+    ```sh
+    mvn spring-boot:run
+    ```
+
+### Running Tests
+
 To run the tests, use the following command:
 
-npm test
-
-
-Frontend
-The frontend will be running on http://localhost:3000.
-
-API Endpoints
-POST /api/v1/payments/initiate - Initiate a payment.
-GET /api/v1/payments/verify - Verify a payment.
-
-
-
-### Notes:
-
-1. Replace placeholders such as `yourusername`, `yourpassword`, `sk_test_your_secret_key`, `pk_test_your_public_key` with your actual data.
-2. Make sure your database is set up and running before starting the backend application.
-3. Ensure you have the correct Paystack keys in your `application.properties` and `.env` files.
-
-
-
-
-
+```sh
+mvn test
